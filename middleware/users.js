@@ -30,7 +30,7 @@ const add_user = (req, res, next) => {
     } else {
       req.body.id = uuidv4();
       req.is_active = false;
-      req.body.createdAt = moment();
+      req.body.created_at = moment();
       next();
     }
   } else {

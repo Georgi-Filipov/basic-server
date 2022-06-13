@@ -37,7 +37,7 @@ const add_order = (req, res, next) => {
     } else {
       req.body.id = uuidv4();
       req.status = 'in storage';
-      req.body.createdAt = moment();
+      req.body.created_at = moment();
       req.body.path = [];
       next();
     }
