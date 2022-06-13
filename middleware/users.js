@@ -1,15 +1,7 @@
-const {v4: uuidv4} = require("uuid");
+const { v4: uuidv4 } = require("uuid");
 const moment = require("moment");
-
-const addError = (obj, key, msg) => {
-  if (obj[key]) {
-    obj[key].push(msg);
-  } else {
-    obj[key] = [msg];
-  }
-}
-
-const roles = ['admin', 'user', 'observer'];
+const addError = require("../utils/addError");
+const ROLES = require("../constants/user");
 
 const add_user = (req, res, next) => {
   if (req.url === "/users" && req.method === "POST") {
@@ -29,7 +21,7 @@ const add_user = (req, res, next) => {
         addError(errors, 'age', 'Field "age" must be in range from 16 to 99.');
       }
     }
-    if (!roles.find(role => role === req.body.role)) {
+    if (!ROLES.find(role => role === req.body.role)) {
       addError(errors, 'role', `"${req.body.role} in not valid choice for "role" field.`);
     }
 
@@ -41,6 +33,8 @@ const add_user = (req, res, next) => {
       req.body.createdAt = moment();
       next();
     }
+  } else {
+    next();
   }
 };
 
