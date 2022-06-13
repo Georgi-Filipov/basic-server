@@ -3,7 +3,7 @@ const moment = require("moment");
 const addError = require("../utils/addError");
 
 const add_order = (req, res, next) => {
-  if (req.url === "/orders" && req.method === "POST") {
+  if (req.url === "/orders/" && req.method === "POST") {
     console.log('orders');
     const required_fields = ["user_id", "product_name", "price_min", "price_max", "address", "location"];
     const errors = {};

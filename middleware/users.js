@@ -4,8 +4,7 @@ const addError = require("../utils/addError");
 const ROLES = require("../constants/user");
 
 const add_user = (req, res, next) => {
-  res.status(200).jsonp({ url: req.url, method: req.method });
-  if (req.url === "/users" && req.method === "POST") {
+  if (req.url === "/users/" && req.method === "POST") {
     const required_fields = ["age", "first_name", "last_name", "user_name", "password", "gender", "email", "phone", "address", "latitude", "longitude", "role"];
     const errors = {};
 
