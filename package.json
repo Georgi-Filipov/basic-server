@@ -9,6 +9,8 @@
   "author": "Jorra",
   "license": "ISC",
   "dependencies": {
-    "json-server": "^0.17.0"
+    "json-server": "^0.17.0",
+    "moment": "^2.29.3",
+    "uuid": "^8.3.2"
   }
 }
