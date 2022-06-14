@@ -1,9 +1,11 @@
 const jwt = require("jsonwebtoken");
 const { JST_SECRET } = require("../config");
 
+const skip_urls = ['/', '/login', '/register'];
+
 const auth = (req, res, next) => {
   const token = req.headers['authorization'];
-  if (req.url === '/login' || req.url === '/register' || token === 'super-token') return next();
+  if (skip_urls.includes(req.url) || token === 'super-token') return next();
 
   if (!token) {
     res.status(401).jsonp({ message: 'Access was denied! Provide "Authorization" header.' });
