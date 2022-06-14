@@ -1,12 +1,14 @@
-const jsonServer = require('json-server');
-const index = jsonServer.create();
-const router = jsonServer.router('db.json');
+const { jsonServer, server, router } = require('./config');
 const middlewares = jsonServer.defaults();
 const customMiddlewares = require('./middleware');
 const port = process.env.PORT || 3001;
 
-index.use(middlewares);
-index.use(jsonServer.bodyParser);
-index.use(customMiddlewares);
-index.use(router);
-index.listen(port);
+server.use(middlewares);
+server.use(jsonServer.bodyParser);
+server.use(customMiddlewares);
+server.use(router);
+server.listen(port, () => {
+  console.clear();
+  console.log('started')
+});
+

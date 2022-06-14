@@ -4,12 +4,14 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "author": "Jorra",
   "license": "ISC",
   "dependencies": {
     "json-server": "^0.17.0",
+    "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.3",
     "uuid": "^8.3.2"
   }
