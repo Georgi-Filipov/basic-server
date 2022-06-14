@@ -6,7 +6,13 @@ const add_order = (req, res, next) => {
   if (req.url === "/orders/" && req.method === "POST") {
     console.log('orders');
     const required_fields = ["user_id", "product_name", "price_min", "price_max", "address", "location"];
+    const not_fields = ["status", "description", "path"];
     const errors = {};
+
+    Object.keys(req.body).map(key => {
+      if (![...required_fields, ...not_fields].includes(key))
+        addError(errors, key, `Field "${key}" in not valid for this request.`);
+    });
 
     required_fields.forEach(key => {
       if (!req.body[key]) {

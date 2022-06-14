@@ -6,7 +6,13 @@ const ROLES = require("../constants/user");
 const add_user = (req, res, next) => {
   if (req.url === "/users/" && req.method === "POST") {
     const required_fields = ["age", "first_name", "last_name", "user_name", "password", "gender", "email", "phone", "address", "latitude", "longitude", "role"];
+    const not_fields = ["image"];
     const errors = {};
+
+    Object.keys(req.body).map(key => {
+      if (![...required_fields, ...not_fields].includes(key))
+        addError(errors, key, `Field "${key}" in not valid for this request.`);
+    });
 
     required_fields.forEach(key => {
       if (!req.body[key]) {
