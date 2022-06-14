@@ -41,7 +41,7 @@ const add_order = (req, res, next) => {
       res.status(400).jsonp({ errors });
     } else {
       req.body.id = uuidv4();
-      req.status = 'in storage';
+      req.body.status = 'in storage';
       req.body.created_at = moment();
       req.body.path = [];
       next();

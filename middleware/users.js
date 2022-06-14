@@ -35,11 +35,10 @@ const add_user = (req, res, next) => {
       res.status(400).jsonp({ errors });
     } else {
       req.body.id = uuidv4();
-      req.is_active = false;
+      req.body.is_active = false;
       req.body.created_at = moment();
       next();
     }
-    console.log(req.body);
   } else {
     next();
   }
