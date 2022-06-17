@@ -24,7 +24,7 @@ const login = (req, res, next) => {
       iat: +moment(),
     }, JST_SECRET);
 
-    res.status(400).jsonp({ token });
+    res.status(200).jsonp({ token });
   } else {
     next();
   }
