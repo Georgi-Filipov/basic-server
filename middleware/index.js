@@ -13,7 +13,7 @@ const register = require("./register");
 // const owners = emp.filter((_, idx) => ownersIds.includes(idx));
 // const managers = emp.filter((_, idx) => managersIds.includes(idx)).map((el, idx) => ({
 //   ...el,
-//   relatedId: emp[ownersIds[Math.floor(idx / 2)]].uuid,
+//   relatedId: emp[ownersIds[Math.floor(Math.random() * ownersIds.length)]].uuid,
 // }));
 // const employees = emp.filter((_, idx) => ![...ownersIds, ...managersIds].includes(idx)).map((el, idx) => ({
 //   ...el,
