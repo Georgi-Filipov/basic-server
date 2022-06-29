@@ -1,7 +1,7 @@
 const { jsonServer, server, router } = require('./config');
 const middlewares = jsonServer.defaults();
 const customMiddlewares = require('./middleware');
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 4000;
 
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
